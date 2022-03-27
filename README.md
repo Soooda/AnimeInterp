@@ -38,15 +38,6 @@ Install lower version to avoid modifications.
 conda install scikit-image==0.14.3 -c conda-forge
 ```
 
-If you got `ImportError: cannot import name 'PILLOW_VERSION' from 'PIL'`, try downgrading Pillow verion.
-
-Ref. [Github/python-pillow Issue #4130](https://github.com/python-pillow/Pillow/issues/4130)
-
-Pillow is by default installed with pytorch so we need to perform a manually downgrade.
-```bash
-conda install pillow=6.1
-```
-
 ### Data
 
 To use the data, please first download it from [link](https://drive.google.com/file/d/1XBDuiEgdd6c0S4OXLF4QvgSn_XNPwc-g/view) and uncompress it into this project directory. When uncompressed, the data will look like
