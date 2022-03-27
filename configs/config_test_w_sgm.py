@@ -16,7 +16,7 @@ pwc_path = None
 
 checkpoint = 'checkpoints/anime_interp_full.ckpt'
 
-store_path = 'outputs/avi_full_results'
+store_path = 'outputs/atd-12k'
 
 
 
