@@ -124,7 +124,7 @@ class RFR(nn.Module):
                 warp21 = backwarp(im28, flow_init_resize)
                 error21 = torch.sum(torch.abs(warp21 - im18), dim=1, keepdim=True)
                 # print('errormin', error21.min(), error21.max())
-                f12init = torch.exp(- self.attention2(torch.cat([im18, error21, flow_init_resize], dim=1)) ** 2) * flow_init_resize
+                f12_init = torch.exp(- self.attention2(torch.cat([im18, error21, flow_init_resize], dim=1)) ** 2) * flow_init_resize
         else:
             flow_init_resize = None
             flow_init = torch.zeros(image1.size()[0], 2, image1.size()[2]//8, image1.size()[3]//8).cuda()
