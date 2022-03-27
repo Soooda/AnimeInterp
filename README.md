@@ -18,6 +18,7 @@ AnimeInterp consists three parts ('segment-guided mathing', 'recurent flow refin
 * 0.4 <= pytorch <= 1.1
 
 If you have to use higher version, please set argument "align_corner" as True for any "grid_sample" function that appears in this project. 
+
 Ref. [Pytorch Official Doc 1.3.0](https://pytorch.org/docs/1.3.0/nn.functional.html?highlight=grid_sample#torch.nn.functional.grid_sample)
 ![image](https://github.com/Soooda/AnimeInterp/blob/main/figs/align_corners.png)
 
@@ -29,13 +30,17 @@ conda install scipy cupy opencv
 pip install easydict
 ```
 `skimage.measure.compare_psnr()` and `skimage.measure.compare_ssim()` was replaced by `skimage.metrics.peak_signal_noise_ratio()` and `skimage.metrics.structural_similarity()`.
+
 Ref. [scikit-image Official Doc 0.16.1](https://scikit-image.org/docs/0.16.x/api/skimage.measure.html?highlight=compare_psnr#skimage.measure.compare_psnr)
+
 Install lower version to avoid modifications.
 ```bash
 conda install scikit-image==0.14.3 -c conda-forge
 ```
 
-If you got `ImportError: cannot import name 'PILLOW_VERSION' from 'PIL'`, try downgrading Pillow verion. Pillow is by default installed with pytorch so we need to perform a manually downgrade.
+If you got `ImportError: cannot import name 'PILLOW_VERSION' from 'PIL'`, try downgrading Pillow verion. 
+
+Pillow is by default installed with pytorch so we need to perform a manually downgrade.
 ```bash
 conda install pillow=6.1
 ```
