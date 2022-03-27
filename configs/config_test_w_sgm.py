@@ -11,12 +11,9 @@ std  = [1, 1, 1]
 
 inter_frames = 1
 
-model = 'AnimeInterp'
+model = 'AnimeInterpNoCupy'
 pwc_path = None
 
 checkpoint = 'checkpoints/anime_interp_full.ckpt'
 
 store_path = 'outputs/atd-12k'
-
-
-
