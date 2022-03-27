@@ -9,3 +9,4 @@ models/rfr_model/models/*
 anime_interp_full.ckpt
 outputs/*
 checkpoints/*
+sgm/*
