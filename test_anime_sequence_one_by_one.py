@@ -218,10 +218,10 @@ if __name__ == "__main__":
         print('PSNR of validation frame' + str(ii+1) + ' is {}'.format(np.mean(psnrs[:, ii])))
 
     for ii in range(config.inter_frames):
-        print('PSNR of validation frame' + str(ii+1) + ' is {}'.format(np.mean(ssims[:, ii])))
+        print('SSIM of validation frame' + str(ii+1) + ' is {}'.format(np.mean(ssims[:, ii])))
             
     for ii in range(config.inter_frames):
-        print('PSNR of validation frame' + str(ii+1) + ' is {}'.format(np.mean(ies[:, ii])))
+        print('IE of validation frame' + str(ii+1) + ' is {}'.format(np.mean(ies[:, ii])))
             
     print('Whole PSNR is {}'.format(psnr) )
     print('Whole SSIM is {}'.format(ssim) )
