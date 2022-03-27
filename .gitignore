@@ -10,3 +10,4 @@ anime_interp_full.ckpt
 outputs/*
 checkpoints/*
 sgm/*
+labelmap/*
