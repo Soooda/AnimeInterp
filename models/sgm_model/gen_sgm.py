@@ -17,7 +17,7 @@ from linefiller.trappedball_fill import trapped_ball_fill_multi, flood_fill_mult
 from torch_scatter import scatter_mean
 from torch_scatter import scatter_add
 
-import softsplat
+# import softsplat
 from forward_warp2 import ForwardWarp
 from my_models import create_VGGFeatNet
 from vis_flow import flow_to_color
@@ -242,7 +242,8 @@ def get_guidance_flow(label_map1, label_map2, img1, img2,
     flowObj.setGradientDescentIterations(50)
 
     if use_gpu:
-        func_fwarp2 = softsplat.ModuleSoftsplat('average')
+        # func_fwarp2 = softsplat.ModuleSoftsplat('average')
+        func_fwarp2 = ForwardWarp()
     else:
         func_fwarp2 = ForwardWarp()
 
