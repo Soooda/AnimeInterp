@@ -28,6 +28,7 @@ conda create -n AnimeInterp pip python=3.7
 conda install pytorch==1.8.0 torchvision==0.9.0 cudatoolkit=10.2 -c pytorch
 conda install scipy opencv
 pip install easydict
+conda install pytorch-scatter -c pyg # For SGM
 ```
 `skimage.measure.compare_psnr()` and `skimage.measure.compare_ssim()` was replaced by `skimage.metrics.peak_signal_noise_ratio()` and `skimage.metrics.structural_similarity()`.
 
@@ -68,6 +69,7 @@ We also provid pre-computed SGM flows in the datasets folder.
 
 ### Code
 
+#### Evaluation
 To run the reference code, first download the pre-trained weights from [link](https://www.dropbox.com/s/oc8juclx1775qib/anime_interp_full.ckpt?dl=0)(Dropbox) or [link](https://www.jianguoyun.com/p/DVKXlwIQ6OS4CRixxPQD)(坚果云) and move it to the checkpoints folder. Then, run
 
 ``` 
@@ -75,6 +77,24 @@ python test_anime_sequence_one_by_one.py configs/config_test_w_sgm.py
 ```
 
 The interpolated results will be recorded into the where the "store_path" argument indicates in the config file.
+
+#### SGM Generation
+```bash
+$ python .\models\sgm_model\gen_labelmap.py .\labelmap\input\ .\labelmap\output\ --use_gpu
+Days              : 0
+Hours             : 0
+Minutes           : 0
+Seconds           : 19
+Milliseconds      : 266
+Ticks             : 192660843
+TotalDays         : 0.000222987086805556
+TotalHours        : 0.00535169008333333
+TotalMinutes      : 0.321101405
+TotalSeconds      : 19.2660843
+TotalMilliseconds : 19266.0843
+
+$ python .\models\sgm_model\gen_sgm.py .\labelmap\input\ .\sgm\ --use_gpu --label_root .\labelmap\output\
+```
 
 ### Citation
 
