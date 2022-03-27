@@ -17,7 +17,9 @@ AnimeInterp consists three parts ('segment-guided mathing', 'recurent flow refin
 ### Environment
 * 0.4 <= pytorch <= 1.1
 
-If you have to use higher version, please set argument "align_corner" as True for any "grid_sample" function that appears in this project.
+If you have to use higher version, please set argument "align_corner" as True for any "grid_sample" function that appears in this project. 
+Ref. [Pytorch Official Doc 1.3.0](https://pytorch.org/docs/1.3.0/nn.functional.html?highlight=grid_sample#torch.nn.functional.grid_sample)
+![image](https://github.com/Soooda/AnimeInterp/blob/main/figs/align_corners.png)
 
 #### Commands
 ```bash
