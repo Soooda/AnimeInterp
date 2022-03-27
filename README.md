@@ -19,6 +19,18 @@ AnimeInterp consists three parts ('segment-guided mathing', 'recurent flow refin
 
 If you have to use higher version, please set argument "align_corner" as True for any "grid_sample" function that appears in this project.
 
+#### Commands
+```bash
+conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch
+pip install scipy
+conda install cupy
+pip install opencv-python
+pip install easydict
+pip install scikit-image==0.16.2
+
+pip install scipy opencv-python easydict scikit-image==0.16.2
+```
+
 ### Data
 
 To use the data, please first download it from [link](https://drive.google.com/file/d/1XBDuiEgdd6c0S4OXLF4QvgSn_XNPwc-g/view) and uncompress it into this project directory. When uncompressed, the data will look like
