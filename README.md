@@ -23,14 +23,21 @@ Ref. [Pytorch Official Doc 1.3.0](https://pytorch.org/docs/1.3.0/nn.functional.h
 
 #### Commands
 ```bash
-conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch
-pip install scipy
-conda install cupy
-pip install opencv-python
+conda create -n AnimeInterp pip python=3.7
+conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=10.0 -c pytorch
+conda install scipy cupy opencv
 pip install easydict
-pip install scikit-image==0.16.2
+```
+`skimage.measure.compare_psnr()` and `skimage.measure.compare_ssim()` was replaced by `skimage.metrics.peak_signal_noise_ratio()` and `skimage.metrics.structural_similarity()`.
+Ref. [scikit-image Official Doc 0.16.1](https://scikit-image.org/docs/0.16.x/api/skimage.measure.html?highlight=compare_psnr#skimage.measure.compare_psnr)
+Install lower version to avoid modifications.
+```bash
+conda install scikit-image==0.14.3 -c conda-forge
+```
 
-pip install scipy opencv-python easydict scikit-image==0.16.2
+If you got `ImportError: cannot import name 'PILLOW_VERSION' from 'PIL'`, try downgrading Pillow verion. Pillow is by default installed with pytorch so we need to perform a manually downgrade.
+```bash
+conda install pillow=6.1
 ```
 
 ### Data
