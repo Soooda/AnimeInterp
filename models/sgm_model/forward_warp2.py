@@ -64,12 +64,12 @@ class ForwardWarp(nn.Module):
 
 
 	def get_bilinear_weights(self, x, y, x1, x2, y1, y2):
-		  w11 = (x2 - x) * (y2 - y)
-		  w12 = (x2 - x) * (y - y1)
-		  w21 = (x - x1) * (y2 - y)
-		  w22 = (x - x1) * (y - y1)
+		w11 = (x2 - x) * (y2 - y)
+		w12 = (x2 - x) * (y - y1)
+		w21 = (x - x1) * (y2 - y)
+		w22 = (x - x1) * (y - y1)
 
-		  return w11, w12, w21, w22
+		return w11, w12, w21, w22
 
 
 	def sample_one(self, img, shiftx, shifty, weight):
