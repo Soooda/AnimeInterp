@@ -30,8 +30,8 @@ Ref. [Pytorch Official Doc 1.3.0](https://pytorch.org/docs/1.3.0/nn.functional.h
 ```bash
 conda create -n AnimeInterp pip python=3.7
 conda install pytorch==1.8.0 torchvision==0.9.0 cudatoolkit=10.2 -c pytorch
-conda install scipy opencv
-pip install easydict
+conda install scipy
+pip install easydict opencv-python
 conda install pytorch-scatter -c pyg # For SGM
 ```
 `skimage.measure.compare_psnr()` and `skimage.measure.compare_ssim()` was replaced by `skimage.metrics.peak_signal_noise_ratio()` and `skimage.metrics.structural_similarity()`.
