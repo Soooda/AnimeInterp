@@ -59,6 +59,7 @@ def validate(config):
     # load weights
     dict1 = torch.load(config.checkpoint)
     model.load_state_dict(dict1['model_state_dict'], strict=False)
+    print(ret)
 
     # prepare others
     store_path = config.store_path
