@@ -60,7 +60,7 @@ class StyleLoss(torch.nn.Module):
 
     def forward(self, output, gt):
         # Refer to FILM Section 4
-        alphas = (1.0, 0.25, 40.0)
+        alphas = (1.0, 0.25, 20.0)
 
         if output.shape[1] != 3:
             output = output.repeat(1, 3, 1, 1)
