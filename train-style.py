@@ -6,6 +6,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 import os
 import time
+import warnings
+
+# Ignores warnings
+warnings.filterwarnings("ignore")
 
 from datas.AniTripletWithSGMFlow import AniTripletWithSGMFlow
 from models.AnimeInterp_no_cupy import AnimeInterpNoCupy as AnimeInterp
@@ -66,7 +70,6 @@ class StyleLoss(torch.nn.Module):
         if self.resize:
             output = F.interpolate(output, mode='bilinear', size=(224, 224), align_corners=False)
             gt = F.interpolate(gt, mode='bilinear', size=(224, 224), align_corners=False)
-        loss = 0.0
         x = output
         y = gt
         
@@ -98,7 +101,7 @@ revNormalize = TF.Compose([revnormalize1, revnormalize2])
 revtrans = TF.Compose([revnormalize1, revnormalize2, TF.ToPILImage()])
 
 trainset = AniTripletWithSGMFlow(trainset_root, train_flow_root, trans, train_size, train_crop_size)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=train_batch_size, shuffle=True, num_workers=20)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=train_batch_size, shuffle=True, num_workers=16)
 
 model = AnimeInterp(path=None).cuda()
 model = nn.DataParallel(model)
@@ -169,4 +172,4 @@ for epoch in range(epochs):
         'state_dict': model.state_dict(),
         'optimizer': optimizer.state_dict(),
     }
-    torch.save(checkpoints, checkpoint_dir + str(epoch) + ".pth")
+    torch.save(checkpoints, os.path.join(checkpoint_dir, str(epoch), ".pth"))
